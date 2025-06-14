@@ -27,7 +27,7 @@ export const company = {
       {
         title: 'Performance',
         description: 'Every server is engineered for maximum performance and efficiency.',
-        icon: 'zap'
+        icon: 'bolt'
       },
       {
         title: 'Reliability',
@@ -37,7 +37,7 @@ export const company = {
       {
         title: 'Innovation',
         description: 'Constantly evolving to meet emerging technology demands.',
-        icon: 'lightbulb'
+        icon: 'light-bulb'
       },
       {
         title: 'Support',

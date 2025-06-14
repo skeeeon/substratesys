@@ -39,22 +39,10 @@
             class="text-gray-600 hover:text-gray-900 p-2 transition-colors"
             aria-label="Toggle mobile menu"
           >
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path 
-                v-if="!mobileMenuOpen" 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                stroke-width="2" 
-                d="M4 6h16M4 12h16M4 18h16" 
-              />
-              <path 
-                v-else 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                stroke-width="2" 
-                d="M6 18L18 6M6 6l12 12" 
-              />
-            </svg>
+            <AppIcon 
+              :name="mobileMenuOpen ? 'x-mark' : 'bars-3'" 
+              size="lg"
+            />
           </button>
         </div>
       </div>
@@ -98,13 +86,14 @@
 import { ref, computed, watch } from 'vue'
 import { navigation } from '~/data/navigation'
 import SubstrateLogo from '~/components/common/SubstrateLogo.vue'
+import AppIcon from '~/components/common/AppIcon.vue'
 
 /**
  * App Header Component
  * 
  * Main navigation header with responsive mobile menu
  * and smooth transitions. Includes company logo and
- * primary navigation links.
+ * primary navigation links. Now uses centralized icon system.
  */
 
 const route = useRoute()

@@ -30,15 +30,10 @@
     <section id="products" class="section-padding bg-gray-50">
       <div class="max-w-7xl mx-auto container-padding">
         <!-- Section Header -->
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Server Solutions for Every Need
-          </h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            From compact edge computing to high-performance enterprise servers, 
-            we have the perfect solution for your infrastructure requirements.
-          </p>
-        </div>
+        <SectionHeader
+          title="Server Solutions for Every Need"
+          subtitle="From compact edge computing to high-performance enterprise servers, we have the perfect solution for your infrastructure requirements."
+        />
         
         <!-- Product Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -46,7 +41,7 @@
             v-for="product in Object.values(products)"
             :key="product.id"
             :product="product"
-            class="animate-fade-up"
+            class="fade-up-element"
           />
         </div>
       </div>
@@ -55,14 +50,10 @@
     <!-- Trust Indicators -->
     <section class="section-padding bg-white">
       <div class="max-w-7xl mx-auto container-padding">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Trusted by Industry Leaders
-          </h2>
-          <p class="text-xl text-gray-600">
-            Powering critical infrastructure across industries
-          </p>
-        </div>
+        <SectionHeader
+          title="Trusted by Industry Leaders"
+          subtitle="Powering critical infrastructure across industries"
+        />
         
         <!-- Stats Grid -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -103,7 +94,7 @@
               >
                 <div class="flex-shrink-0 mr-4">
                   <div class="w-10 h-10 bg-substrate-accent rounded-lg flex items-center justify-center">
-                    <component :is="getFeatureIcon(feature.icon)" class="h-6 w-6 text-white" />
+                    <AppIcon :name="feature.icon" class="text-white" />
                   </div>
                 </div>
                 <div>
@@ -121,9 +112,7 @@
           <!-- Visual -->
           <div class="relative">
             <div class="bg-gradient-to-br from-primary-500 to-substrate-accent rounded-lg p-8 text-white text-center">
-              <svg class="h-32 w-32 mx-auto mb-6 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
-              </svg>
+              <AppIcon name="cpu-chip" size="2xl" class="mx-auto mb-6 opacity-80" />
               <h3 class="text-2xl font-bold mb-2">Custom Engineering</h3>
               <p class="opacity-90">
                 Every server is designed with your specific requirements in mind
@@ -164,95 +153,27 @@
 </template>
 
 <script setup>
-import { h, onMounted } from 'vue'
+import { onMounted } from 'vue'
 
 import { products } from '~/data/products'
 import ProductCard from '~/components/product/ProductCard.vue'
 import PageHero from '~/components/common/PageHero.vue'
+import AppIcon from '~/components/common/AppIcon.vue'
+import SectionHeader from '~/components/common/SectionHeader.vue'
 
 /**
  * Home Page (Landing Page)
  * 
  * Main landing page showcasing Substrate Systems' server solutions.
  * Features hero section, product showcase, trust indicators, and CTA.
+ * Now uses centralized icon system for better maintainability.
  */
 
-// Icon components as render functions
-const BoltIcon = () => h('svg', {
-  fill: 'none',
-  stroke: 'currentColor',
-  viewBox: '0 0 24 24',
-  class: 'h-6 w-6'
-}, [
-  h('path', {
-    'stroke-linecap': 'round',
-    'stroke-linejoin': 'round',
-    'stroke-width': '2',
-    d: 'M13 10V3L4 14h7v7l9-11h-7z'
-  })
-])
-
-const ShieldCheckIcon = () => h('svg', {
-  fill: 'none',
-  stroke: 'currentColor',
-  viewBox: '0 0 24 24',
-  class: 'h-6 w-6'
-}, [
-  h('path', {
-    'stroke-linecap': 'round',
-    'stroke-linejoin': 'round',
-    'stroke-width': '2',
-    d: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'
-  })
-])
-
-const LightBulbIcon = () => h('svg', {
-  fill: 'none',
-  stroke: 'currentColor',
-  viewBox: '0 0 24 24',
-  class: 'h-6 w-6'
-}, [
-  h('path', {
-    'stroke-linecap': 'round',
-    'stroke-linejoin': 'round',
-    'stroke-width': '2',
-    d: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'
-  })
-])
-
-const UsersIcon = () => h('svg', {
-  fill: 'none',
-  stroke: 'currentColor',
-  viewBox: '0 0 24 24',
-  class: 'h-6 w-6'
-}, [
-  h('path', {
-    'stroke-linecap': 'round',
-    'stroke-linejoin': 'round',
-    'stroke-width': '2',
-    d: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z'
-  })
-])
-
-// Get icon component by name
-const getFeatureIcon = (iconName) => {
-  const iconMap = {
-    'zap': BoltIcon,
-    'shield-check': ShieldCheckIcon,
-    'lightbulb': LightBulbIcon,
-    'users': UsersIcon
-  }
-  return iconMap[iconName] || BoltIcon
-}
-
-// SEO Meta
-useSeoMeta({
-  title: 'Substrate Systems - Purpose-Built Server Solutions',
+// SEO Meta using composable
+usePageMeta({
+  title: '',  // Use default title
   description: 'High-performance, purpose-built servers for enterprise, edge computing, and specialized applications. Mini, Standard, and Premium server solutions.',
   keywords: 'purpose-built servers, enterprise servers, edge computing, mini servers, rack servers, custom hardware',
-  ogTitle: 'Substrate Systems - Purpose-Built Server Solutions',
-  ogDescription: 'High-performance, purpose-built servers for enterprise and edge computing applications.',
-  ogImage: '/images/og-image.jpg',
   twitterCard: 'summary_large_image'
 })
 
@@ -268,7 +189,7 @@ const keyFeatures = [
   {
     title: 'Performance First',
     description: 'Every server is engineered for maximum performance and efficiency.',
-    icon: 'zap'
+    icon: 'bolt'
   },
   {
     title: 'Proven Reliability',
@@ -278,7 +199,7 @@ const keyFeatures = [
   {
     title: 'Continuous Innovation',
     description: 'Constantly evolving to meet emerging technology demands.',
-    icon: 'lightbulb'
+    icon: 'light-bulb'
   },
   {
     title: 'Expert Support',
@@ -287,30 +208,38 @@ const keyFeatures = [
   }
 ]
 
-// Add scroll animation when elements come into view
+// Optimized CSS-based animation instead of JavaScript
 onMounted(() => {
-  // Simple intersection observer for animations
-  const elements = document.querySelectorAll('.animate-fade-up')
-  
-  if (elements.length > 0) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1'
-          entry.target.style.transform = 'translateY(0)'
-        }
-      })
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    })
+  // Simple CSS-based intersection observer for fade-up animation
+  const style = document.createElement('style')
+  style.textContent = `
+    .fade-up-element {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
     
-    elements.forEach((el) => {
-      el.style.opacity = '0'
-      el.style.transform = 'translateY(30px)'
-      el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out'
-      observer.observe(el)
+    .fade-up-element.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  `
+  document.head.appendChild(style)
+  
+  // Intersection Observer for animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible')
+      }
     })
-  }
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  })
+  
+  document.querySelectorAll('.fade-up-element').forEach((el) => {
+    observer.observe(el)
+  })
 })
 </script>
