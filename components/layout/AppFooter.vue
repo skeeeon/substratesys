@@ -10,21 +10,6 @@
           <p class="mt-4 text-gray-400 text-sm leading-relaxed">
             {{ company.description }}
           </p>
-          
-          <!-- Social Links -->
-          <div class="mt-6 flex space-x-4">
-            <a
-              v-for="(url, platform) in company.socialMedia"
-              :key="platform"
-              :href="url"
-              :aria-label="`Follow us on ${platform}`"
-              class="text-gray-400 hover:text-substrate-accent transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <AppIcon :name="platform" size="lg" />
-            </a>
-          </div>
         </div>
 
         <!-- Products -->
