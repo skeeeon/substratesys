@@ -5,7 +5,7 @@ export const products = {
     slug: 'mini-servers',
     tagline: 'Compact Power for Edge Computing',
     description: 'Purpose-built mini servers designed for edge computing, IoT applications, and space-constrained environments without compromising performance.',
-    startingPrice: '$2,499',
+    startingPrice: '$1,099',
     image: '/images/products/mini.png', // Updated image path
     hero: {
       title: 'Mini Servers',
@@ -13,12 +13,12 @@ export const products = {
       features: ['Edge Computing Ready', 'Fanless Design', 'Industrial Grade']
     },
     specifications: {
-      processor: 'Intel Core i7-12700H or AMD Ryzen 7 PRO',
-      memory: '16GB-64GB DDR4',
-      storage: '512GB-2TB NVMe SSD',
-      connectivity: '2x 10GbE, 4x USB 3.2, Wi-Fi 6E',
-      power: '65W TDP',
-      dimensions: '7.5" x 7.5" x 2.2"',
+      processor: 'Intel Core i3 N305',
+      memory: '32GB DDR4',
+      storage: '1-16TB NVMe SSD',
+      connectivity: '2x 2.5GbE, 2x USB 3.2, 2x HDMI',
+      power: '20W TDP',
+      dimensions: '4" x 4" x 2.2"',
       operating_temp: '-10°C to 60°C',
       certifications: 'FCC, CE, UL'
     },
@@ -50,20 +50,20 @@ export const products = {
     slug: 'standard-servers',
     tagline: 'Balanced Performance for Business Applications',
     description: 'Versatile rack-mount servers engineered for reliability and performance across diverse business applications and workloads.',
-    startingPrice: '$4,999',
+    startingPrice: '$5,999',
     image: '/images/products/r540.png', // Updated image path
     hero: {
       title: 'Standard Servers',
       subtitle: 'Proven reliability for mission-critical applications',
-      features: ['1U/2U Rack Mount', 'Redundant Power', 'Enterprise SSD']
+      features: ['2U Rack Mount', 'Redundant Power', 'Enterprise SSD']
     },
     specifications: {
-      processor: 'Intel Xeon Silver/Gold or AMD EPYC',
-      memory: '32GB-512GB DDR4 ECC',
-      storage: '1TB-8TB Enterprise SSD/HDD',
-      connectivity: '4x 25GbE, IPMI, PCIe expansion',
-      power: 'Redundant 650W PSU',
-      dimensions: '1U: 17.2" x 25.6" x 1.7"',
+      processor: 'Dual Intel Xeon Silver',
+      memory: '64GB DDR4 ECC',
+      storage: '50TB RAID5, 100TB RAID6',
+      connectivity: '4x 1GbE, iDrac, PCIe expansion',
+      power: 'Redundant 750W PSU',
+      dimensions: '2U: 17.2" x 25.6" x 1.7"',
       operating_temp: '10°C to 35°C',
       certifications: 'FCC, CE, UL, ENERGY STAR'
     },
@@ -105,8 +105,8 @@ export const products = {
     specifications: {
       processor: 'Dual Intel Xeon Gold',
       memory: '256GB DDR4 ECC',
-      storage: '100TB Usable ZFS Array',
-      connectivity: '2x 10GbE SFP+, 2x 1GbE Ethernet',
+      storage: '100TB ZFS Array', 
+      connectivity: '2x 10GbE SFP+, 2x 1GbE Ethernet, iDrac, PCIe expansion',
       power: 'Redundant 1100W PSU',
       dimensions: '2U: 17.2" x 25.6" x 3.5"',
       operating_temp: '10°C to 35°C',

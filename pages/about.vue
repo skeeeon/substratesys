@@ -107,11 +107,12 @@
           </p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Centered Leadership Cards -->
+        <div class="flex flex-wrap justify-center gap-8">
           <div
             v-for="leader in company.about.team.leadership"
             :key="leader.name"
-            class="bg-white rounded-lg p-8 text-center shadow-sm hover:shadow-md transition-shadow"
+            class="bg-white rounded-lg p-8 text-center shadow-sm hover:shadow-md transition-shadow w-full md:w-80 lg:w-96"
           >
             <!-- Leader Avatar Placeholder -->
             <div class="w-24 h-24 bg-gradient-to-br from-primary-500 to-substrate-accent rounded-full flex items-center justify-center mx-auto mb-6">
@@ -165,7 +166,7 @@ import SectionHeader from '~/components/common/SectionHeader.vue'
  * 
  * Company information page showcasing mission, values,
  * team, certifications, and company story.
- * Uses centralized icon system and composables for cleaner code.
+ * Updated to center leadership team cards.
  */
 
 // SEO Meta using composable
