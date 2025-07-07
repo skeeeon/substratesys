@@ -4,13 +4,13 @@ export const company = {
   description: 'Substrate Systems designs and manufactures high-performance, purpose-built servers for enterprise, edge computing, and specialized applications.',
   
   contact: {
-    phone: '(555) 123-4567',
+    phone: '(816) 800-3299',
     email: 'info@substratesys.com',
     address: {
-      street: '123 Technology Drive',
+      street: '710 Central Street',
       city: 'Kansas City',
       state: 'MO',
-      zip: '64155',
+      zip: '64105',
       country: 'USA'
     }
   },
@@ -47,7 +47,7 @@ export const company = {
     ],
 
     stats: [
-      { label: 'Servers Deployed', value: '4000+' },
+      { label: 'Servers Deployed', value: '5000+' },
       { label: 'Enterprise Clients', value: '50+' },
       { label: 'Years in Business', value: '10+' },
       { label: 'Support SLA', value: '99.9%' }
@@ -57,15 +57,15 @@ export const company = {
       leadership: [
         {
           name: 'Brian Miller',
-          title: 'CEO & Co-Founder',
-          bio: 'Former IT Director of American Digital Security with 15+ years in enterprise hardware.',
-          image: '/images/team/sarah-chen.jpg'
+          title: 'Co-Founder',
+          bio: 'Former IT Director of a successful integrator with 15+ years in enterprise hardware.',
+          image: '/images/team/brian-miller.jpg'
         },
         {
-          name: 'Marcus Rodriguez',
-          title: 'CTO & Co-Founder',
+          name: 'Lawrence Leiker',
+          title: 'Co-Founder',
           bio: 'Hardware architecture expert with previous experience at Intel and AMD.',
-          image: '/images/team/marcus-rodriguez.jpg'
+          image: '/images/team/lawrence-leiker.jpg'
         }
       ]
     }

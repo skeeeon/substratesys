@@ -178,7 +178,7 @@ usePageMeta({
 
 // Page data
 const trustStats = [
-  { value: '500+', label: 'Servers Deployed' },
+  { value: '5000+', label: 'Servers Deployed' },
   { value: '99.9%', label: 'Uptime SLA' },
   { value: '50+', label: 'Enterprise Clients' },
   { value: '24/7', label: 'Technical Support' }

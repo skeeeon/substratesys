@@ -103,11 +103,11 @@ export const products = {
       features: ['Dual CPU Support', 'GPU Ready', 'High-Speed Storage']
     },
     specifications: {
-      processor: 'Dual Intel Xeon Platinum or AMD EPYC',
-      memory: '128GB-2TB DDR4 ECC',
-      storage: '2TB-32TB NVMe/Enterprise SSD',
-      connectivity: '8x 25GbE, InfiniBand ready',
-      power: 'Redundant 1200W PSU',
+      processor: 'Dual Intel Xeon Gold',
+      memory: '256GB DDR4 ECC',
+      storage: '100TB Usable ZFS Array',
+      connectivity: '2x 10GbE SFP+, 2x 1GbE Ethernet',
+      power: 'Redundant 1100W PSU',
       dimensions: '2U: 17.2" x 25.6" x 3.5"',
       operating_temp: '10°C to 35°C',
       certifications: 'FCC, CE, UL, ENERGY STAR'
@@ -122,7 +122,7 @@ export const products = {
     benefits: [
       'Maximum processing power',
       'GPU acceleration support',
-      'Ultra-fast NVMe storage',
+      'Ultra-fast redundant storage',
       'Advanced cooling system',
       'White-glove support'
     ],
