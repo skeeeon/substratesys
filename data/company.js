@@ -5,12 +5,12 @@ export const company = {
   
   contact: {
     phone: '(555) 123-4567',
-    email: 'info@substratesystems.com',
+    email: 'info@substratesys.com',
     address: {
       street: '123 Technology Drive',
-      city: 'Austin',
-      state: 'TX',
-      zip: '78701',
+      city: 'Kansas City',
+      state: 'MO',
+      zip: '64155',
       country: 'USA'
     }
   },
@@ -19,9 +19,9 @@ export const company = {
     mission: 'To deliver purpose-built server solutions that empower businesses to achieve their technology goals with uncompromising performance and reliability.',
     founded: '2018',
     employees: '50+',
-    headquarters: 'Austin, Texas',
+    headquarters: 'Kansas City, Missouri',
     
-    story: 'Founded in 2018 by a team of hardware engineers and enterprise technology veterans, Substrate Systems emerged from a simple observation: most server solutions force businesses to compromise between performance, cost, and specific requirements. We set out to change that by creating purpose-built servers that deliver exactly what our customers need.',
+    story: 'Founded in 2013 by a team of surveillance and enterprise technology veterans, Substrate Systems emerged from a simple observation: most server solutions force businesses to compromise between performance, cost, and specific requirements. We set out to change that by creating purpose-built servers that deliver exactly what our customers need.',
     
     values: [
       {
@@ -47,25 +47,18 @@ export const company = {
     ],
 
     stats: [
-      { label: 'Servers Deployed', value: '500+' },
+      { label: 'Servers Deployed', value: '4000+' },
       { label: 'Enterprise Clients', value: '50+' },
-      { label: 'Years in Business', value: '7+' },
-      { label: 'Uptime SLA', value: '99.9%' }
-    ],
-
-    certifications: [
-      'ISO 9001:2015 Quality Management',
-      'ISO 14001:2015 Environmental Management',
-      'SOC 2 Type II Compliance',
-      'FCC Equipment Authorization'
+      { label: 'Years in Business', value: '10+' },
+      { label: 'Support SLA', value: '99.9%' }
     ],
 
     team: {
       leadership: [
         {
-          name: 'Sarah Chen',
+          name: 'Brian Miller',
           title: 'CEO & Co-Founder',
-          bio: 'Former VP of Engineering at Dell Technologies with 15+ years in enterprise hardware.',
+          bio: 'Former IT Director of American Digital Security with 15+ years in enterprise hardware.',
           image: '/images/team/sarah-chen.jpg'
         },
         {
@@ -73,12 +66,6 @@ export const company = {
           title: 'CTO & Co-Founder',
           bio: 'Hardware architecture expert with previous experience at Intel and AMD.',
           image: '/images/team/marcus-rodriguez.jpg'
-        },
-        {
-          name: 'David Kim',
-          title: 'VP of Operations',
-          bio: 'Supply chain and manufacturing specialist with global enterprise experience.',
-          image: '/images/team/david-kim.jpg'
         }
       ]
     }

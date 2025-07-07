@@ -63,9 +63,15 @@
           <!-- Image -->
           <div v-if="imageUrl" class="relative order-first lg:order-last">
             <div class="relative z-10">
-              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-10 text-center">
-                <AppIcon name="server" size="2xl" class="text-white mx-auto mb-4" />
-                <p class="text-white/80 text-base">Product Image</p>
+              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center">
+                <div class="flex items-center justify-center h-64 w-full">
+                  <img 
+                    :src="imageUrl" 
+                    :alt="title"
+                    class="max-w-full max-h-full object-contain drop-shadow-lg"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
             
@@ -81,13 +87,13 @@
 
 <script setup>
 import { computed } from 'vue'
-import AppIcon from './AppIcon.vue'
 
 /**
  * PageHero Component
  * 
  * Simplified hero section with better defaults and composition.
  * Reduced props and improved maintainability.
+ * Updated to display actual product images instead of placeholder icons.
  */
 
 const props = defineProps({

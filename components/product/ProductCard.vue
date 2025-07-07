@@ -1,11 +1,13 @@
 <template>
   <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
     <!-- Product Image -->
-    <div class="aspect-w-16 relative h-48 bg-gradient-to-br from-gray-100 to-gray-200">
-      <div class="absolute inset-0 flex items-center justify-center">
-        <!-- Server icon using AppIcon -->
-        <AppIcon name="server" size="2xl" class="text-gray-400" />
-      </div>
+    <div class="aspect-w-16 relative h-48 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6">
+      <img 
+        :src="product.image" 
+        :alt="product.name"
+        class="max-w-full max-h-full object-contain"
+        loading="lazy"
+      />
       <!-- Overlay with price -->
       <div class="absolute top-4 right-4">
         <span class="bg-substrate-accent text-white px-3 py-1 rounded-full text-sm font-semibold">
@@ -64,8 +66,8 @@ import AppIcon from '~/components/common/AppIcon.vue'
  * Product Card Component
  * 
  * Displays product information in a card format with
- * image, features, pricing, and action buttons.
- * Now uses centralized icon system for better consistency.
+ * actual product images, features, pricing, and action buttons.
+ * Updated to show real product images instead of placeholder icons.
  */
 
 defineProps({
@@ -74,7 +76,7 @@ defineProps({
     required: true,
     validator: (product) => {
       return product.name && product.slug && product.tagline && 
-             product.startingPrice && product.hero?.features
+             product.startingPrice && product.hero?.features && product.image
     }
   }
 })

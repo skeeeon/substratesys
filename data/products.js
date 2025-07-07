@@ -6,7 +6,7 @@ export const products = {
     tagline: 'Compact Power for Edge Computing',
     description: 'Purpose-built mini servers designed for edge computing, IoT applications, and space-constrained environments without compromising performance.',
     startingPrice: '$2,499',
-    image: '/images/mini-server.jpg',
+    image: '/images/products/mini.png', // Updated image path
     hero: {
       title: 'Mini Servers',
       subtitle: 'Maximum performance in minimal space',
@@ -51,7 +51,7 @@ export const products = {
     tagline: 'Balanced Performance for Business Applications',
     description: 'Versatile rack-mount servers engineered for reliability and performance across diverse business applications and workloads.',
     startingPrice: '$4,999',
-    image: '/images/standard-server.jpg',
+    image: '/images/products/r540.png', // Updated image path
     hero: {
       title: 'Standard Servers',
       subtitle: 'Proven reliability for mission-critical applications',
@@ -96,7 +96,7 @@ export const products = {
     tagline: 'Maximum Performance for Demanding Workloads',
     description: 'High-end servers built for the most demanding applications including AI/ML, high-performance computing, and large-scale virtualization.',
     startingPrice: '$12,999',
-    image: '/images/premium-server.jpg',
+    image: '/images/products/r740xd.png', // Updated image path
     hero: {
       title: 'Premium Servers',
       subtitle: 'Uncompromising performance for critical workloads',

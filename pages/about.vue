@@ -126,33 +126,6 @@
       </div>
     </section>
 
-    <!-- Certifications -->
-    <section class="section-padding bg-white">
-      <div class="max-w-7xl mx-auto container-padding">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Certifications & Compliance
-          </h2>
-          <p class="text-xl text-gray-600">
-            Maintaining the highest standards of quality and security
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <div
-            v-for="certification in company.about.certifications"
-            :key="certification"
-            class="flex items-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-              <AppIcon name="shield-check" variant="solid" class="text-green-600" />
-            </div>
-            <span class="text-gray-900 font-medium">{{ certification }}</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Contact CTA -->
     <section class="section-padding bg-substrate-accent text-white">
       <div class="max-w-4xl mx-auto container-padding text-center">

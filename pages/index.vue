@@ -8,7 +8,6 @@
       size="lg"
       :title-highlight="true"
       :show-pattern="true"
-      image-url="/images/hero-server.jpg"
     >
       <template #actions>
         <NuxtLink
@@ -166,7 +165,7 @@ import SectionHeader from '~/components/common/SectionHeader.vue'
  * 
  * Main landing page showcasing Substrate Systems' server solutions.
  * Features hero section, product showcase, trust indicators, and CTA.
- * Now uses centralized icon system for better maintainability.
+ * Updated to remove hero image and focus on centered content.
  */
 
 // SEO Meta using composable
