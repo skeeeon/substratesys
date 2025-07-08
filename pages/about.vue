@@ -120,8 +120,59 @@
             </div>
             
             <h3 class="text-xl font-bold text-gray-900 mb-1">{{ leader.name }}</h3>
-            <p class="text-primary-600 font-medium mb-4">{{ leader.title }}</p>
-            <p class="text-gray-600 text-sm leading-relaxed">{{ leader.bio }}</p>
+            <p class="text-primary-600 font-medium mb-6">{{ leader.title }}</p>
+            
+            <!-- Contact Links -->
+            <div class="flex justify-center space-x-4">
+              <!-- Email -->
+              <a
+                :href="`mailto:${leader.email}`"
+                class="w-10 h-10 bg-gray-100 hover:bg-primary-100 rounded-lg flex items-center justify-center transition-colors group"
+                :title="`Email ${leader.name}`"
+              >
+                <AppIcon 
+                  name="envelope" 
+                  size="sm" 
+                  class="text-gray-600 group-hover:text-primary-600 transition-colors" 
+                />
+              </a>
+              
+              <!-- Phone -->
+              <a
+                :href="`tel:${leader.phone}`"
+                class="w-10 h-10 bg-gray-100 hover:bg-green-100 rounded-lg flex items-center justify-center transition-colors group"
+                :title="`Call ${leader.name}`"
+              >
+                <AppIcon 
+                  name="phone" 
+                  size="sm" 
+                  class="text-gray-600 group-hover:text-green-600 transition-colors" 
+                />
+              </a>
+              
+              <!-- Calendar -->
+              <a
+                :href="leader.calendarUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-10 h-10 bg-gray-100 hover:bg-substrate-accent/10 rounded-lg flex items-center justify-center transition-colors group"
+                :title="`Schedule time with ${leader.name}`"
+              >
+                <svg 
+                  class="w-4 h-4 text-gray-600 group-hover:text-substrate-accent transition-colors" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round" 
+                    stroke-width="2" 
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -166,7 +217,7 @@ import SectionHeader from '~/components/common/SectionHeader.vue'
  * 
  * Company information page showcasing mission, values,
  * team, certifications, and company story.
- * Updated to center leadership team cards.
+ * Updated leadership section with contact icons instead of bio text.
  */
 
 // SEO Meta using composable

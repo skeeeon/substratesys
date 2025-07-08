@@ -58,14 +58,18 @@ export const company = {
         {
           name: 'Brian Miller',
           title: 'Co-Founder',
-          bio: 'Former IT Director of a successful integrator with 15+ years in enterprise hardware.',
-          image: '/images/team/brian-miller.jpg'
+          image: '/images/team/brian-miller.jpg',
+          email: 'brian@substratesys.com',
+          phone: '(816) 800-3300',
+          calendarUrl: 'https://calendly.com/brian-miller-substrate'
         },
         {
           name: 'Lawrence Leiker',
           title: 'Co-Founder',
-          bio: 'Hardware architecture expert with previous experience at Intel and AMD.',
-          image: '/images/team/lawrence-leiker.jpg'
+          image: '/images/team/lawrence-leiker.jpg',
+          email: 'lawrence@substratesys.com',
+          phone: '(816) 800-3301',
+          calendarUrl: 'https://calendly.com/lawrence-leiker-substrate'
         }
       ]
     }

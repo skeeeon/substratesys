@@ -63,7 +63,7 @@ export const products = {
       storage: '50TB RAID5, 100TB RAID6',
       connectivity: '4x 1GbE, iDrac, PCIe expansion',
       power: 'Redundant 750W PSU',
-      dimensions: '2U: 17.2" x 25.6" x 1.7"',
+      dimensions: '2U: 17.2" x 25.6" x 3.5"',
       operating_temp: '10°C to 35°C',
       certifications: 'FCC, CE, UL, ENERGY STAR'
     },
@@ -84,7 +84,7 @@ export const products = {
     accessories: [
       'Rail kit for rack mounting',
       'Additional memory modules',
-      'Storage expansion',
+      'GPU accelelration support',
       'Management software'
     ]
   },
