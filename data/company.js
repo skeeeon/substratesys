@@ -57,19 +57,11 @@ export const company = {
       leadership: [
         {
           name: 'Brian Miller',
-          title: 'Co-Founder',
+          title: 'Founder/CEO',
           image: '/images/team/brian-miller.jpg',
           email: 'brian@substratesys.com',
           phone: '(816) 800-3300',
           calendarUrl: 'https://calendly.com/brian-miller-substrate'
-        },
-        {
-          name: 'Lawrence Leiker',
-          title: 'Co-Founder',
-          image: '/images/team/lawrence-leiker.jpg',
-          email: 'lawrence@substratesys.com',
-          phone: '(816) 800-3301',
-          calendarUrl: 'https://calendly.com/lawrence-leiker-substrate'
         }
       ]
     }
