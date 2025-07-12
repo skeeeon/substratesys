@@ -3,7 +3,7 @@
     <!-- About Hero -->
     <PageHero
       title="About Substrate Systems"
-      subtitle="Pioneering purpose-built server solutions since 2018"
+      subtitle="Pioneering purpose-built server solutions since 2013"
       variant="gradient"
       size="lg"
     >
