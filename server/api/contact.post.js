@@ -44,8 +44,8 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    // Rate limiting check
-    const clientIP = getClientIP(event) || 'unknown'
+    // Rate limiting check  
+    const clientIP = getClientIPAddress(event)
     if (isRateLimited(clientIP)) {
       throw createError({
         statusCode: 429,
@@ -91,6 +91,40 @@ export default defineEventHandler(async (event) => {
     })
   }
 })
+
+/**
+ * Get client IP address from various sources (Vercel-compatible)
+ */
+function getClientIPAddress(event) {
+  try {
+    // Try multiple methods to get client IP in serverless environment
+    const headers = getHeaders(event)
+    
+    // Vercel-specific headers
+    const vercelIP = headers['x-vercel-forwarded-for'] || headers['x-forwarded-for']
+    if (vercelIP) {
+      // Take the first IP if multiple are present
+      return vercelIP.split(',')[0].trim()
+    }
+    
+    // Standard headers
+    const standardIP = headers['x-real-ip'] || 
+                      headers['cf-connecting-ip'] || // Cloudflare
+                      headers['x-client-ip']
+    
+    if (standardIP) {
+      return standardIP
+    }
+    
+    // Fallback to event node request (may not work in all serverless environments)
+    return event.node?.req?.socket?.remoteAddress || 
+           event.node?.req?.connection?.remoteAddress || 
+           'unknown'
+  } catch (error) {
+    console.warn('Could not determine client IP:', error.message)
+    return 'unknown'
+  }
+}
 
 /**
  * Validates contact form data
