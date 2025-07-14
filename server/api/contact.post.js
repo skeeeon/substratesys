@@ -8,7 +8,7 @@
 import { Resend } from 'resend'
 
 // Initialize Resend with runtime config
-let resend: Resend
+let resend
 
 // Rate limiting store (in-memory for simplicity on free tier)
 const rateLimitStore = new Map()
