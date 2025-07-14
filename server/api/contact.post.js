@@ -5,11 +5,6 @@
  * and email delivery using Resend service.
  */
 
-import { Resend } from 'resend'
-
-// Initialize Resend with runtime config
-let resend
-
 // Rate limiting store (in-memory for simplicity on free tier)
 const rateLimitStore = new Map()
 
@@ -22,21 +17,23 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  // Initialize Resend with runtime config
-  const config = useRuntimeConfig()
-  if (!resend) {
+  try {
+    // Get runtime config
+    const config = useRuntimeConfig()
+    
+    // Check if email service is configured
     if (!config.resendApiKey) {
+      console.error('RESEND_API_KEY not found in environment variables')
       throw createError({
         statusCode: 500,
         statusMessage: 'Email service not configured'
       })
     }
-    resend = new Resend(config.resendApiKey)
-  }
 
-  try {
     // Parse and validate request body
     const body = await readBody(event)
+    console.log('Received form data:', { ...body, message: body.message?.substring(0, 50) + '...' })
+    
     const validationResult = validateContactForm(body)
     
     if (!validationResult.isValid) {
@@ -48,7 +45,7 @@ export default defineEventHandler(async (event) => {
     }
 
     // Rate limiting check
-    const clientIP = getClientIP(event)
+    const clientIP = getClientIP(event) || 'unknown'
     if (isRateLimited(clientIP)) {
       throw createError({
         statusCode: 429,
@@ -76,8 +73,12 @@ export default defineEventHandler(async (event) => {
     }
 
   } catch (error) {
-    // Log error for debugging (you might want to use a proper logging service)
-    console.error('Contact form error:', error)
+    // Enhanced error logging
+    console.error('Contact form error:', {
+      message: error.message,
+      statusCode: error.statusCode,
+      stack: error.stack
+    })
     
     // Return user-friendly error
     if (error.statusCode) {
@@ -241,6 +242,10 @@ async function sendContactEmail(formData, config) {
   `
   
   try {
+    // Dynamic import of Resend to avoid build issues
+    const { Resend } = await import('resend')
+    const resend = new Resend(config.resendApiKey)
+    
     const result = await resend.emails.send({
       from: config.resendFromEmail || 'noreply@substratesys.com',
       to: config.contactEmail || 'info@substratesys.com',
