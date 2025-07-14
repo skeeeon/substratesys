@@ -1,15 +1,34 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   
-  // SSG Configuration
+  // Hybrid Configuration - Static pages + Server functions
   nitro: {
+    // Route-specific rendering rules
+    routeRules: {
+      // Static pages (prerendered at build time)
+      '/': { prerender: true },
+      '/about': { prerender: true },
+      '/contact': { prerender: true },
+      '/products/**': { prerender: true },
+      
+      // API routes (server-side only)
+      '/api/**': { 
+        cors: true,
+        headers: {
+          'Access-Control-Allow-Methods': 'POST, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type'
+        }
+      }
+    },
+    
+    // Prerender specific routes for SEO
     prerender: {
       routes: [
         '/',
-        '/about',
+        '/about', 
         '/contact',
         '/products/mini-servers',
-        '/products/standard-servers',
+        '/products/standard-servers', 
         '/products/premium-servers'
       ]
     }
@@ -62,6 +81,24 @@ export default defineNuxtConfig({
   // CSS
   css: ['~/assets/css/main.css'],
 
-  // Ensure proper SSR handling
-  ssr: true
+  // Enable SSR for server functions
+  ssr: true,
+
+  // Build configuration
+  build: {
+    transpile: ['@headlessui/vue']
+  },
+
+  // Runtime config for environment variables
+  runtimeConfig: {
+    // Private keys (only available on server-side)
+    resendApiKey: process.env.RESEND_API_KEY,
+    contactEmail: process.env.CONTACT_EMAIL,
+    resendFromEmail: process.env.RESEND_FROM_EMAIL,
+    
+    // Public keys (exposed to client-side)
+    public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://substratesys.com'
+    }
+  }
 })

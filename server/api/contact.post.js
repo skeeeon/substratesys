@@ -7,7 +7,8 @@
 
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Initialize Resend with runtime config
+let resend: Resend
 
 // Rate limiting store (in-memory for simplicity on free tier)
 const rateLimitStore = new Map()
@@ -19,6 +20,18 @@ export default defineEventHandler(async (event) => {
       statusCode: 405,
       statusMessage: 'Method not allowed'
     })
+  }
+
+  // Initialize Resend with runtime config
+  const config = useRuntimeConfig()
+  if (!resend) {
+    if (!config.resendApiKey) {
+      throw createError({
+        statusCode: 500,
+        statusMessage: 'Email service not configured'
+      })
+    }
+    resend = new Resend(config.resendApiKey)
   }
 
   try {
@@ -52,7 +65,7 @@ export default defineEventHandler(async (event) => {
     }
 
     // Send email notification
-    await sendContactEmail(body)
+    await sendContactEmail(body, config)
     
     // Update rate limit
     updateRateLimit(clientIP)
@@ -185,7 +198,7 @@ function updateRateLimit(ip) {
 /**
  * Send email notification using Resend
  */
-async function sendContactEmail(formData) {
+async function sendContactEmail(formData, config) {
   const { firstName, lastName, email, company, interest, message } = formData
   
   const productInterest = interest ? getProductName(interest) : 'General inquiry'
@@ -229,8 +242,8 @@ async function sendContactEmail(formData) {
   
   try {
     const result = await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL || 'noreply@substratesys.com',
-      to: process.env.CONTACT_EMAIL || 'info@substratesys.com',
+      from: config.resendFromEmail || 'noreply@substratesys.com',
+      to: config.contactEmail || 'info@substratesys.com',
       replyTo: email,
       subject: `New Contact: ${firstName} ${lastName} - ${productInterest}`,
       html: emailHtml,
